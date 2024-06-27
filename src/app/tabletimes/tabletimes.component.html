@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Tabela Times</h2>
+<mat-dialog-content class="mat-typography">
+
+  <input  placeholder="Escreva um time " type="text" [(ngModel)]="time.nome" />
+  <br>
+   <table>
+   <thead>
+   <tr>
+     <th>Times de Futebol</th>
+   </tr>
+   </thead>
+   <tbody>
+     @for (t of times; track t.nome) {
+       <tr>
+         <td>
+           {{ t.nome }}
+         </td>
+       </tr>
+     }
+   </tbody>
+ </table>
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="remover()" >Remover</button>
+  <button mat-button (click)="adicionar()" >Adicionar</button>
+</mat-dialog-actions>

@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Calculadora</h2>
+<mat-dialog-content class="mat-typography">
+
+    <input placeholder="escreva um numero" type="number"  [(ngModel)]="usuario.numero1" />
+    <br>
+    <br>
+    <input placeholder="escreva um numero" type="number"  [(ngModel)]="usuario.numero2" />
+<br><br>
+    <select [(ngModel)]="usuario.option">
+        <option value="+">Soma</option>
+        <option value="-">Subtração</option>
+        <option value="/">Divisão</option>
+        <option value="*">Multiplicação</option>
+    </select>
+<br>
+
+    <br>
+    <span>{{result}}</span>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="somarDados(usuario.numero1, usuario.numero2, usuario.option)" >Contar</button>
+</mat-dialog-actions>

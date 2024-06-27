@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Tabela Cartorio</h2>
+<mat-dialog-content class="mat-typography">
+
+  <input  placeholder="Escreva seu nome " type="text" [(ngModel)]="civilpeople.nome" />
+  <select [(ngModel)]="civilpeople.estadoCivil">
+    <option value="casado">Casado</option>
+    <option value="solteiro">Solteiro</option>
+    <option value="divorciado">Divorciado</option>
+    <option value="viuvo">Viuvo</option>
+  </select>
+
+  <br>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>| NOME</th>
+      <th>| ESTADO CIVIL</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (p of pessoas; track p.nome) {
+        <tr>
+          <td>
+            {{ p.id }}
+          </td>
+          <td>
+            {{ p.nome }}
+          </td>
+          <td>
+            {{ p.estadoCivil }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+<!--  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">-->
+
+<!--    &lt;!&ndash; Name Column &ndash;&gt;-->
+
+<!--      <ng-container matColumnDef="id">-->
+<!--        <th mat-header-cell *matHeaderCellDef> ID</th>-->
+<!--        <td mat-cell > {{civilpeople.id}} </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="nome">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Nome </th>-->
+<!--        <td mat-cell >  </td>-->
+<!--      </ng-container>-->
+
+<!--      &lt;!&ndash; Weight Column &ndash;&gt;-->
+<!--      <ng-container matColumnDef="estadoCivil">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Estado Civil </th>-->
+<!--        <td mat-cell >  </td>-->
+<!--      </ng-container>-->
+
+
+
+<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--  </table>-->
+
+  <br>
+  <span> Pessoas Solteiras = {{this.contadorSolteiros}}</span> <br>
+  <span> Pessoas Casadas = {{this.contadorCasados}}</span> <br>
+  <span> Pessoas Divorciadas = {{this.contadorDivorciados}}</span> <br>
+  <span> Pessoas Viuvas = {{this.contadorViuvos}}</span>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="adicionar()">Adicionar</button>
+</mat-dialog-actions>
